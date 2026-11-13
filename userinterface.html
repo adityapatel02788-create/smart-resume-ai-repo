@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Resume AI Builder — Access Workspace</title>
+  <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #050609;
+      background-image:
+        radial-gradient(1.3px 1.3px at 30px 40px, rgba(255, 255, 255, 0.35), transparent),
+        radial-gradient(1px 1px at 90px 120px, rgba(255, 255, 255, 0.22), transparent),
+        radial-gradient(1.5px 1.5px at 170px 60px, rgba(245, 158, 11, 0.35), transparent),
+        radial-gradient(1px 1px at 240px 150px, rgba(56, 189, 248, 0.35), transparent),
+        radial-gradient(1.2px 1.2px at 310px 80px, rgba(255, 255, 255, 0.28), transparent),
+        radial-gradient(circle at 50% 20%, rgba(245, 158, 11, 0.04), transparent 50%),
+        linear-gradient(180deg, #050609 0%, #0b0e14 100%);
+      background-size: 320px 200px, 320px 200px, 320px 200px, 320px 200px, 320px 200px, 100% 100%, 100% 100%;
+      margin: 0;
+      padding: 1.5rem;
+    }
+
+    .auth-logo-wrap {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 1.25rem;
+    }
+
+    .auth-logo-img {
+      height: 44px;
+      width: auto;
+      display: block;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="auth-card">
+    <div class="auth-header" style="text-align: center;">
+      <div class="auth-logo-wrap">
+        <img src="assets/logo.svg" alt="Smart Resume AI Builder" class="auth-logo-img">
+      </div>
+      <p class="auth-subtitle" id="authSubtitle">Sign in to access your resumes, templates & Groq AI studio</p>
+    </div>
+
+    <div class="auth-error-alert" id="error" style="display: none;"></div>
+  <div class="auth-info-alert" id="infoAlert" style="display: none;"></div>
+
+  <!-- Main Auth Form (Sign In / Register) -->
+  <form class="auth-form" id="authForm" novalidate>
+    <div id="authFields">
+      <div class="form-group" id="nameGroup" style="display: none;">
+        <label class="form-label" for="fullName">Full Name</label>
+        <input type="text" id="fullName" class="form-input" placeholder="e.g. Rahul Sharma" autocomplete="name">
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="email">Email Address</label>
+        <input type="email" id="email" class="form-input" placeholder="you@example.com" autocomplete="email" required>
+      </div>
+
+      <div class="form-group">
+        <div class="flex justify-between items-center">
+          <label class="form-label" for="password">Password</label>
+          <button type="button" class="auth-toggle-pwd" id="toggle">Show</button>
+        </div>
+        <input type="password" id="password" class="form-input" placeholder="••••••••" autocomplete="current-password" required>
+      </div>
+
+      <button type="submit" class="btn btn-primary auth-submit-btn" id="submitBtn">Sign In to Workspace</button>
+    </div>
+
+    <!-- Verification Step (Mandatory for registration) -->
+    <div id="verifyGroup" style="display: none;">
+      <div class="verification-email-badge" id="verifyEmailBadge">user@example.com</div>
+      <div class="verification-notice">
+        We have dispatched a 6-digit confirmation code to your email address. Please check your inbox and enter the code below to activate your account.
+      </div>
+
+      <div class="form-group" style="margin-top: 1rem;">
+        <label class="form-label" for="verifyCodeInput" style="text-align: center; display: block;">Enter 6-Digit Verification Code</label>
+        <input type="text" id="verifyCodeInput" class="form-input verification-code-input" placeholder="• • • • • •" maxlength="6" autocomplete="one-time-code">
+      </div>
+
+      <button type="button" class="btn btn-primary auth-submit-btn" id="verifySubmitBtn">Verify & Activate Account</button>
+      
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 1rem; font-size: 0.8rem;">
+        <button type="button" id="resendCodeBtn" style="background: none; border: none; color: var(--accent-amber); cursor: pointer; text-decoration: underline;">Resend Code</button>
+        <button type="button" id="backToRegisterBtn" style="background: none; border: none; color: var(--text-secondary); cursor: pointer;">← Back to Register</button>
+      </div>
+    </div>
+  </form>
+
+  <div class="auth-switch" id="authSwitchRow" style="margin-top: 1.25rem; text-align: center; font-size: 0.85rem; color: var(--text-secondary);">
+    <span id="switchPrompt">Don't have an account yet? </span>
+    <button type="button" class="auth-link-btn" id="switchBtn" style="background: none; border: none; color: var(--accent-amber); font-weight: 600; cursor: pointer; text-decoration: underline;">Register Here</button>
+  </div>
+
+<script>
+  let isRegister = false;
+  let authStep = "credentials"; // "credentials" | "verify"
+  let pendingUser = null;
+
+  function normalizeApiBaseUrl(url) {
+    if (!url || typeof url !== 'string' || !url.trim()) return 'http://localhost:5000';
+    let clean = url.trim().replace(/\/+$/, '');
+    if (clean && !/^https?:\/\//i.test(clean) && !clean.startsWith('/')) {
+      clean = 'http://' + clean;
+    }
+    return clean;
+  }
+
+  const getApiBase = () => {
+    if (window.__SMART_RESUME_API_BASE__) return normalizeApiBaseUrl(window.__SMART_RESUME_API_BASE__);
+    const saved = localStorage.getItem('smart_resume_api_base');
+    if (saved && saved.trim()) return normalizeApiBaseUrl(saved);
+    if (window.location.protocol !== 'file:') {
+      if (window.location.port === '5000' || (!window.location.port && window.location.host.endsWith(':5000'))) {
+        return '';
+      }
+      if (window.location.hostname === '127.0.0.1') {
+        return 'http://127.0.0.1:5000';
+      }
+      if (window.location.hostname === 'localhost') {
+        return 'http://localhost:5000';
+      }
+      if (window.location.hostname && window.location.hostname !== 'localhost') {
+        const proto = window.location.protocol === 'https:' ? 'https:' : 'http:';
+        return `${proto}//${window.location.hostname}:5000`;
+      }
+    }
+    return 'http://localhost:5000';
+  };
+
+  async function authApiFetch(endpoint, options = {}) {
+    const base = getApiBase();
+    const url = `${base}${endpoint}`;
+    try {
+      return await fetch(url, options);
+    } catch (err) {
+      if (url.includes('localhost:5000')) {
+        const altUrl = url.replace('localhost:5000', '127.0.0.1:5000');
+        try {
+          return await fetch(altUrl, options);
+        } catch (_) {}
+      } else if (url.includes('127.0.0.1:5000')) {
+        const altUrl = url.replace('127.0.0.1:5000', 'localhost:5000');
+        try {
+          return await fetch(altUrl, options);
+        } catch (_) {}
+      }
+      throw err;
+    }
+  }
+
+  const form = document.getElementById("authForm");
+  const authFields = document.getElementById("authFields");
+  const verifyGroup = document.getElementById("verifyGroup");
+  const nameGroup = document.getElementById("nameGroup");
+  const fullName = document.getElementById("fullName");
+  const email = document.getElementById("email");
+  const password = document.getElementById("password");
+  const error = document.getElementById("error");
+  const infoAlert = document.getElementById("infoAlert");
+  const toggle = document.getElementById("toggle");
+  const submitBtn = document.getElementById("submitBtn");
+  const switchPrompt = document.getElementById("switchPrompt");
+  const switchBtn = document.getElementById("switchBtn");
+  const authSubtitle = document.getElementById("authSubtitle");
+  const authSwitchRow = document.getElementById("authSwitchRow");
+
+  const verifyEmailBadge = document.getElementById("verifyEmailBadge");
+  const verifyCodeInput = document.getElementById("verifyCodeInput");
+  const verifySubmitBtn = document.getElementById("verifySubmitBtn");
+  const resendCodeBtn = document.getElementById("resendCodeBtn");
+  const backToRegisterBtn = document.getElementById("backToRegisterBtn");
+
+  const EMAIL_REGEX = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+  function showError(msg) {
+    error.textContent = msg;
+    error.style.display = "block";
+    infoAlert.style.display = "none";
+  }
+
+  function showInfo(msg) {
+    infoAlert.textContent = msg;
+    infoAlert.style.display = "block";
+    error.style.display = "none";
+  }
+
+  function clearAlerts() {
+    error.style.display = "none";
+    infoAlert.style.display = "none";
+  }
+
+    toggle.addEventListener("click", () => {
+      const hidden = password.type === "password";
+      password.type = hidden ? "text" : "password";
+      toggle.textContent = hidden ? "Hide" : "Show";
+    });
+
+  switchBtn.addEventListener("click", () => {
+    isRegister = !isRegister;
+    authStep = "credentials";
+    clearAlerts();
+    authFields.style.display = "block";
+    verifyGroup.style.display = "none";
+    authSwitchRow.style.display = "block";
+
+    if (isRegister) {
+      nameGroup.style.display = "block";
+      fullName.required = true;
+      submitBtn.textContent = "Continue & Verify Email →";
+      switchPrompt.textContent = "Already have an account? ";
+      switchBtn.textContent = "Sign In";
+      authSubtitle.textContent = "Create your account to start building vector-grade resumes";
+    } else {
+      nameGroup.style.display = "none";
+      fullName.required = false;
+      submitBtn.textContent = "Sign In to Workspace";
+      switchPrompt.textContent = "Don't have an account yet? ";
+      switchBtn.textContent = "Register Here";
+      authSubtitle.textContent = "Sign in to access your resumes, templates & Groq AI studio";
+    }
+  });
+
+  backToRegisterBtn.addEventListener("click", () => {
+    authStep = "credentials";
+    clearAlerts();
+    authFields.style.display = "block";
+    verifyGroup.style.display = "none";
+    authSwitchRow.style.display = "block";
+    authSubtitle.textContent = "Create your account to start building vector-grade resumes";
+  });
+
+  resendCodeBtn.addEventListener("click", async () => {
+    if (!pendingUser) return;
+    clearAlerts();
+    try {
+      const res = await authApiFetch('/api/auth/send-verification', {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email: pendingUser.email, name: pendingUser.name, password: pendingUser.password })
+      });
+      const data = await res.json().catch(() => null);
+      if (res.ok && data && data.success) {
+        showInfo(`A new 6-digit verification code has been dispatched to ${pendingUser.email}.`);
+      } else {
+        showError(data?.error || "Failed to resend verification code. Please try again later.");
+      }
+    } catch (err) {
+      const serverUrl = getApiBase() || 'http://localhost:5000';
+      showError(`Could not reach authentication server at ${serverUrl} to resend code.`);
+    }
+  });
+
+  // Only allow digits in verification code input
+  verifyCodeInput.addEventListener("input", (e) => {
+    e.target.value = e.target.value.replace(/\D/g, "").slice(0, 6);
+  });
+
+  // Verification button handler
+  verifySubmitBtn.addEventListener("click", async () => {
+    clearAlerts();
+    const entered = verifyCodeInput.value.trim();
+
+    if (!entered || entered.length !== 6) {
+      showError("Please enter the complete 6-digit verification code.");
+      return;
+    }
+
+    if (!pendingUser) {
+      showError("Verification session expired. Please register again.");
+      authStep = "credentials";
+      authFields.style.display = "block";
+      verifyGroup.style.display = "none";
+      return;
+    }
+
+    // Authoritative Server-Side Code Verification
+    try {
+      const res = await authApiFetch('/api/auth/verify-code', {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          email: pendingUser.email,
+          code: entered,
+          name: pendingUser.name,
+          password: pendingUser.password
+        })
+      });
+      const data = await res.json().catch(() => null);
+      if (res.ok && data && data.success && data.user) {
+        let registeredUsers = [];
+        try {
+          registeredUsers = JSON.parse(localStorage.getItem('smart_resume_registered_users') || '[]');
+        } catch (err) {}
+        const newUser = {
+          id: data.user.id || `user_${Date.now()}`,
+          email: pendingUser.email,
+          name: pendingUser.name,
+          role: "Candidate",
+          isVerified: true
+        };
+        const filtered = registeredUsers.filter(u => u.email.toLowerCase() !== pendingUser.email);
+        filtered.push(newUser);
+        localStorage.setItem('smart_resume_registered_users', JSON.stringify(filtered));
+        localStorage.setItem("smart_resume_auth_user", JSON.stringify({ ...newUser, token: data.token }));
+        window.location.href = "index.html";
+        return;
+      } else if (data && data.error) {
+        showError(data.error);
+        return;
+      } else {
+        showError("Verification failed. Please check the code and try again.");
+        return;
+      }
+    } catch (err) {
+      const serverUrl = getApiBase() || 'http://localhost:5000';
+      showError(`Could not connect to the authentication server at ${serverUrl}. Please check your network and try again.`);
+    }
+  });
+
+  // Main Form Submit
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    clearAlerts();
+
+    const val = email.value.trim().toLowerCase();
+    const pwd = password.value.trim();
+    const nameVal = fullName.value.trim();
+
+    if (isRegister && !nameVal) {
+      showError("Please enter your full name.");
+      return;
+    }
+
+    if (!val || !EMAIL_REGEX.test(val)) {
+      showError("Please enter a valid email address with a proper domain (e.g. name@domain.com).");
+      return;
+    }
+
+    if (pwd.length < 6) {
+      showError("Password must be at least 6 characters.");
+      return;
+    }
+
+    // --- REGISTRATION FLOW WITH MANDATORY AUTHORITATIVE EMAIL VERIFICATION ---
+    if (isRegister) {
+      try {
+        const res = await authApiFetch('/api/auth/send-verification', {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ email: val, name: nameVal, password: pwd })
+        });
+        const data = await res.json().catch(() => null);
+        if (res.ok && data && data.success) {
+          pendingUser = {
+            email: val,
+            name: nameVal,
+            password: pwd
+          };
+
+          authStep = "verify";
+          authFields.style.display = "none";
+          verifyGroup.style.display = "block";
+          authSwitchRow.style.display = "none";
+          verifyEmailBadge.textContent = val;
+          verifyCodeInput.value = "";
+          authSubtitle.textContent = "Enter the 6-digit confirmation code to activate your account";
+          showInfo(`A 6-digit verification code has been dispatched to ${val}. Please check your inbox.`);
+          return;
+        } else {
+          showError(data?.error || "Could not send verification email. Please check your email configuration.");
+          return;
+        }
+      } catch (err) {
+        const serverUrl = getApiBase() || 'http://localhost:5000';
+        showError(`Could not connect to authentication server at ${serverUrl}. Please ensure the backend server is running ('python backend/app.py').`);
+        return;
+      }
+    }
+
+    // --- STRICT LOGIN FLOW (NO RANDOM ACCESS) ---
+    // 1. Try Backend
+    try {
+      const res = await authApiFetch('/api/login', {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email: val, password: pwd })
+      });
+      const data = await res.json().catch(() => null);
+      if (res.ok && data && data.success && data.user) {
+        localStorage.setItem("smart_resume_auth_user", JSON.stringify({
+          ...data.user,
+          token: data.token || "session_" + Date.now()
+        }));
+        window.location.href = "index.html";
+        return;
+      }
+      if (res.status === 404 || (data && data.error && data.error.includes("not found"))) {
+        showError("No registered account found with this email. You must register and verify your email first before logging in.");
+        return;
+      }
+      if (res.status === 401 || (data && data.error && data.error.includes("password"))) {
+        showError("Invalid password. Please check your credentials and try again.");
+        return;
+      }
+      if (res.status === 403 || (data && data.requires_verification)) {
+        showError("This account is not verified yet. Please register or complete email verification.");
+        return;
+      }
+    } catch (err) {}
+
+    // 2. Client-side registered users check
+    let registeredUsers = [];
+    try {
+      registeredUsers = JSON.parse(localStorage.getItem('smart_resume_registered_users') || '[]');
+    } catch (err) {}
+
+    const match = registeredUsers.find(u => u.email.toLowerCase() === val);
+
+    // STRICT CHECK: Reject any unregistered email (NO auto-creation!)
+    if (!match) {
+      showError("No registered account found with this email. You must register and verify your email first before logging in.");
+      return;
+    }
+
+    if (match.password !== pwd) {
+      showError("Invalid password. Please check your credentials and try again.");
+      return;
+    }
+
+    if (match.isVerified === false) {
+      showError("This account is not verified yet. Please complete email verification.");
+      return;
+    }
+
+    localStorage.setItem("smart_resume_auth_user", JSON.stringify(match));
+    window.location.href = "index.html";
+  });
+</script>
+</body>
+
+</html>

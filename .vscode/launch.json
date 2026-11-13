@@ -1,0 +1,32 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Launch index.html in Chrome",
+            "type": "chrome",
+            "request": "launch",
+            "file": "${workspaceFolder}/index.html"
+        },
+        {
+            "name": "Launch index.html in Edge",
+            "type": "msedge",
+            "request": "launch",
+            "file": "${workspaceFolder}/index.html"
+        },
+        {
+            "name": "Launch Chrome against Flask (localhost:5000)",
+            "type": "chrome",
+            "request": "launch",
+            "url": "http://localhost:5000",
+            "webRoot": "${workspaceFolder}"
+        },
+        {
+            "name": "Python: Flask Backend (backend/app.py)",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/backend/app.py",
+            "python": "${workspaceFolder}/backend/.venv/Scripts/python.exe",
+            "cwd": "${workspaceFolder}"
+        }
+    ]
+}

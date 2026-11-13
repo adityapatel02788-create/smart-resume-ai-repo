@@ -1,0 +1,33 @@
+# Environment variables & secrets (CRITICAL: Never commit)
+.env
+backend/.env
+*.env
+
+# SQLite Database
+*.db
+backend/*.db
+backend/smart_resume.db
+
+# Virtual environments
+.venv/
+backend/.venv/
+env/
+venv/
+
+# Node dependencies & caches
+node_modules/
+package-lock.json
+npm-debug.log*
+
+# Python caches
+__pycache__/
+*.py[cod]
+*$py.class
+backend/__pycache__/
+
+# OS & Editor files
+.DS_Store
+Thumbs.db
+.vscode/*
+!.vscode/launch.json
+

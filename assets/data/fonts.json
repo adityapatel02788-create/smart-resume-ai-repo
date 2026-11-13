@@ -1,0 +1,62 @@
+[
+  {
+    "id": "Inter",
+    "name": "Inter (Modern Sans)",
+    "category": "Sans-Serif",
+    "tags": ["Tech Standard", "Ultra Legible"]
+  },
+  {
+    "id": "Roboto",
+    "name": "Roboto (Clean Sans)",
+    "category": "Sans-Serif",
+    "tags": ["Modern", "Neutral"]
+  },
+  {
+    "id": "Open Sans",
+    "name": "Open Sans (Universal)",
+    "category": "Sans-Serif",
+    "tags": ["ATS Safe", "Clean"]
+  },
+  {
+    "id": "Lato",
+    "name": "Lato (Corporate Sans)",
+    "category": "Sans-Serif",
+    "tags": ["Corporate", "Executive"]
+  },
+  {
+    "id": "Montserrat",
+    "name": "Montserrat (Geometric)",
+    "category": "Sans-Serif",
+    "tags": ["Bold Header", "Design"]
+  },
+  {
+    "id": "Merriweather",
+    "name": "Merriweather (Classic Serif)",
+    "category": "Serif",
+    "tags": ["Ivy League", "Editorial"]
+  },
+  {
+    "id": "Lora",
+    "name": "Lora (Literary Serif)",
+    "category": "Serif",
+    "tags": ["Traditional", "Elegant"]
+  },
+  {
+    "id": "EB Garamond",
+    "name": "Garamond (Executive Serif)",
+    "category": "Serif",
+    "tags": ["Academic", "Executive"]
+  },
+  {
+    "id": "Space Grotesk",
+    "name": "Space Grotesk (Tech Monospace)",
+    "category": "Modern",
+    "tags": ["Engineering", "Startup"]
+  },
+  {
+    "id": "Manrope",
+    "name": "Manrope (High-Tech Geometric)",
+    "category": "Modern",
+    "tags": ["Next-Gen", "Crisp"]
+  }
+]

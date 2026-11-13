@@ -1,0 +1,452 @@
+[
+  {
+    "id": "tpl_corp_pro",
+    "name": "Corporate Professional",
+    "category": "Professional",
+    "tag": "Executive",
+    "badgeColor": "blue",
+    "featured": true,
+    "rating": 4.9,
+    "downloads": "24.5k",
+    "desc": "Crisp executive architecture with formal dual-line dividers, high visual hierarchy, and authoritative corporate presence.",
+    "layoutType": "single-column",
+    "pills": [
+      "Corporate",
+      "Executive Grade",
+      "Formal Dual-Line",
+      "Fortune 500"
+    ]
+  },
+  {
+    "id": "tpl_executive",
+    "name": "Executive Resume",
+    "category": "Professional",
+    "tag": "Leadership",
+    "badgeColor": "purple",
+    "featured": true,
+    "rating": 4.9,
+    "downloads": "31.2k",
+    "desc": "Two-column architecture featuring a dedicated credentials sidebar for skills, contact info, and education alongside an executive leadership history canvas.",
+    "layoutType": "sidebar-left",
+    "pills": [
+      "C-Suite",
+      "Sidebar Credentials",
+      "High Density",
+      "Leadership"
+    ]
+  },
+  {
+    "id": "tpl_biz_pro",
+    "name": "Business Professional",
+    "category": "Professional",
+    "tag": "Business",
+    "badgeColor": "amber",
+    "featured": false,
+    "rating": 4.8,
+    "downloads": "15.8k",
+    "desc": "Polished business management format with prominent contact header band, boxed key competencies, and structured career milestones.",
+    "layoutType": "single-column",
+    "pills": [
+      "Operations",
+      "Header Band",
+      "Core Competencies",
+      "Consulting"
+    ]
+  },
+  {
+    "id": "tpl_min_pro",
+    "name": "Minimal Professional",
+    "category": "Professional",
+    "tag": "Clean",
+    "badgeColor": "slate",
+    "featured": false,
+    "rating": 4.7,
+    "downloads": "19.3k",
+    "desc": "Monochromatic high-contrast styling with generous whitespace, delicate hairline separators, and understated typographical elegance.",
+    "layoutType": "single-column",
+    "pills": [
+      "Monochrome",
+      "Hairline Dividers",
+      "Whitespace Focus",
+      "Timeless"
+    ]
+  },
+  {
+    "id": "tpl_elegant_pro",
+    "name": "Elegant Professional",
+    "category": "Professional",
+    "tag": "Prestige",
+    "badgeColor": "rose",
+    "featured": false,
+    "rating": 4.8,
+    "downloads": "14.2k",
+    "desc": "Sophisticated serif typography with centered monogram initials badge, warm charcoal accents, and traditional prestige layout.",
+    "layoutType": "single-column",
+    "pills": [
+      "Monogram Crest",
+      "Classic Serif",
+      "Prestige Styling",
+      "Bespoke"
+    ]
+  },
+  {
+    "id": "tpl_modern_minimal",
+    "name": "Modern Minimal",
+    "category": "Modern",
+    "tag": "Minimalist",
+    "badgeColor": "blue",
+    "featured": true,
+    "rating": 4.9,
+    "downloads": "27.4k",
+    "desc": "Clean modern sans-serif layout with vertical accent border, clean pill tags, and compact modern spacing.",
+    "layoutType": "single-column",
+    "pills": [
+      "Left Accent Bar",
+      "Modern Sans",
+      "Pill Tags",
+      "Sleek"
+    ]
+  },
+  {
+    "id": "tpl_creative_modern",
+    "name": "Creative Modern",
+    "category": "Modern",
+    "tag": "Top Pick",
+    "badgeColor": "rose",
+    "featured": true,
+    "rating": 4.9,
+    "downloads": "35.1k",
+    "desc": "Top vibrant gradient header card with metric callout chips and modern border accents. Perfect for product leaders and creators.",
+    "layoutType": "banner-top",
+    "pills": [
+      "Gradient Banner",
+      "Metric Chips",
+      "Design Forward",
+      "Creative"
+    ]
+  },
+  {
+    "id": "tpl_twocol_modern",
+    "name": "Two-Column Modern",
+    "category": "Modern",
+    "tag": "Modern Grid",
+    "badgeColor": "purple",
+    "featured": true,
+    "rating": 4.8,
+    "downloads": "22.9k",
+    "desc": "Asymmetric 35/65 split grid with full-height tinted sidebar, skill level indicators, and high-impact right column.",
+    "layoutType": "two-column",
+    "pills": [
+      "35/65 Split Grid",
+      "Tinted Sidebar",
+      "Visual Flow",
+      "High Impact"
+    ]
+  },
+  {
+    "id": "tpl_stylish",
+    "name": "Stylish Resume",
+    "category": "Modern",
+    "tag": "Timeline",
+    "badgeColor": "emerald",
+    "featured": false,
+    "rating": 4.8,
+    "downloads": "16.7k",
+    "desc": "Contemporary career timeline aesthetic with connected milestone dots, floating name badge, and dot-accented skill chips.",
+    "layoutType": "timeline",
+    "pills": [
+      "Timeline Node",
+      "Milestone Dots",
+      "Floating Header",
+      "Dynamic"
+    ]
+  },
+  {
+    "id": "tpl_gradient_modern",
+    "name": "Gradient Modern",
+    "category": "Modern",
+    "tag": "SaaS Vibe",
+    "badgeColor": "blue",
+    "featured": false,
+    "rating": 4.8,
+    "downloads": "18.3k",
+    "desc": "Vibrant gradient underlined titles, card-styled sections with soft glass borders, and contemporary typography.",
+    "layoutType": "single-column",
+    "pills": [
+      "Gradient Bars",
+      "Card Sections",
+      "Modern Glass",
+      "Startup"
+    ]
+  },
+  {
+    "id": "tpl_ats_classic",
+    "name": "ATS Classic",
+    "category": "ATS-Friendly",
+    "tag": "100% Parser Safe",
+    "badgeColor": "emerald",
+    "featured": true,
+    "rating": 5.0,
+    "downloads": "42.8k",
+    "desc": "Harvard & Ivy League standard linear format with zero graphics, high-contrast typography, and maximum parse-rate across Taleo, Workday, and Greenhouse.",
+    "layoutType": "single-column",
+    "pills": [
+      "Harvard Format",
+      "Taleo Approved",
+      "100% Linear",
+      "Zero Failures"
+    ]
+  },
+  {
+    "id": "tpl_ats_pro",
+    "name": "ATS Professional",
+    "category": "ATS-Friendly",
+    "tag": "99.8% ATS Score",
+    "badgeColor": "emerald",
+    "featured": true,
+    "rating": 4.9,
+    "downloads": "29.6k",
+    "desc": "Strict standard single-column with uppercase section headers, bulleted accomplishments with action verbs, and universal parser compatibility.",
+    "layoutType": "single-column",
+    "pills": [
+      "Greenhouse Safe",
+      "Uppercase Headers",
+      "Action Verbs",
+      "Universal"
+    ]
+  },
+  {
+    "id": "tpl_simple_onecol",
+    "name": "Simple One-Column",
+    "category": "ATS-Friendly",
+    "tag": "Simple",
+    "badgeColor": "slate",
+    "featured": false,
+    "rating": 4.7,
+    "downloads": "21.4k",
+    "desc": "Clean linear hierarchy with centered header, pipe-separated contact info, and crisp section dividers.",
+    "layoutType": "single-column",
+    "pills": [
+      "Linear Flow",
+      "Centered Header",
+      "Zero Distractions",
+      "ATS Guaranteed"
+    ]
+  },
+  {
+    "id": "tpl_clean_corp",
+    "name": "Clean Corporate",
+    "category": "ATS-Friendly",
+    "tag": "Corporate ATS",
+    "badgeColor": "blue",
+    "featured": false,
+    "rating": 4.8,
+    "downloads": "17.9k",
+    "desc": "Solid horizontal section lines separating bold role titles, bulleted points, and strict adherence to corporate ATS scanning rules.",
+    "layoutType": "single-column",
+    "pills": [
+      "Rule Lines",
+      "Corporate Clean",
+      "High Contrast",
+      "Safe Hierarchy"
+    ]
+  },
+  {
+    "id": "tpl_text_pro",
+    "name": "Text-Based Professional",
+    "category": "ATS-Friendly",
+    "tag": "Parser First",
+    "badgeColor": "slate",
+    "featured": false,
+    "rating": 4.9,
+    "downloads": "20.1k",
+    "desc": "Markdown and plain-text inspired ultra-clean layout with bracketed dates and bulleted lists. Maximum readability for bots and humans.",
+    "layoutType": "single-column",
+    "pills": [
+      "Bracketed Dates",
+      "Plain-Text Feel",
+      "Zero Layout Shifts",
+      "Screen Reader Safe"
+    ]
+  },
+  {
+    "id": "tpl_software_dev",
+    "name": "Software Developer",
+    "category": "Technology & Engineering",
+    "tag": "Dev Favorite",
+    "badgeColor": "blue",
+    "featured": true,
+    "rating": 5.0,
+    "downloads": "48.2k",
+    "desc": "Engineered for developers: GitHub/portfolio badges, monospace tech stack chips (`Tech: React, Node, AWS`), and metrics-focused bullets.",
+    "layoutType": "single-column",
+    "pills": [
+      "GitHub Links",
+      "Monospace Stack",
+      "Skill Badges",
+      "XYZ Bullets"
+    ]
+  },
+  {
+    "id": "tpl_aiml_eng",
+    "name": "AI/ML Engineer",
+    "category": "Technology & Engineering",
+    "tag": "AI/ML Focus",
+    "badgeColor": "purple",
+    "featured": true,
+    "rating": 4.9,
+    "downloads": "25.7k",
+    "desc": "Specialized architecture for AI/ML specialists: dedicated Model & Frameworks taxonomy, research milestones, and compute metrics.",
+    "layoutType": "single-column",
+    "pills": [
+      "Model Taxonomy",
+      "PyTorch/LLM",
+      "Research Highlights",
+      "Compute Metrics"
+    ]
+  },
+  {
+    "id": "tpl_data_scientist",
+    "name": "Data Scientist",
+    "category": "Technology & Engineering",
+    "tag": "Quant Focus",
+    "badgeColor": "emerald",
+    "featured": false,
+    "rating": 4.8,
+    "downloads": "19.5k",
+    "desc": "Quantitative profile header with stats callout bar (latency, accuracy, throughput) and categorized analytical competencies.",
+    "layoutType": "single-column",
+    "pills": [
+      "Stats Callout",
+      "Analytical Stack",
+      "KPI Impact",
+      "Python/SQL/R"
+    ]
+  },
+  {
+    "id": "tpl_web_dev",
+    "name": "Web Developer",
+    "category": "Technology & Engineering",
+    "tag": "Frontend/Fullstack",
+    "badgeColor": "blue",
+    "featured": false,
+    "rating": 4.8,
+    "downloads": "23.4k",
+    "desc": "Interactive web aesthetic with live demo links, frontend/backend/devops categorizations, and modern web badge styling.",
+    "layoutType": "single-column",
+    "pills": [
+      "Live Demos",
+      "Frontend/Backend",
+      "Modern Pills",
+      "Web Focused"
+    ]
+  },
+  {
+    "id": "tpl_it_pro",
+    "name": "IT Professional",
+    "category": "Technology & Engineering",
+    "tag": "SysAdmin/Cloud",
+    "badgeColor": "amber",
+    "featured": false,
+    "rating": 4.7,
+    "downloads": "16.1k",
+    "desc": "Prominent Certifications & Security box (AWS, Cisco, CompTIA), network/cloud skills matrix, and incident mitigation layout.",
+    "layoutType": "single-column",
+    "pills": [
+      "Certifications Box",
+      "Cloud & Security",
+      "Infra Matrix",
+      "SysAdmin"
+    ]
+  },
+  {
+    "id": "tpl_college_student",
+    "name": "College Student",
+    "category": "Student & Fresher",
+    "tag": "Campus Favorite",
+    "badgeColor": "blue",
+    "featured": true,
+    "rating": 4.9,
+    "downloads": "38.7k",
+    "desc": "Education placed prominently at the top with GPA, honors, relevant coursework, followed by Capstone Projects and Technical Skills.",
+    "layoutType": "single-column",
+    "pills": [
+      "Education First",
+      "GPA & Honors",
+      "Coursework Box",
+      "Capstone Projects"
+    ]
+  },
+  {
+    "id": "tpl_fresher",
+    "name": "Fresher Resume",
+    "category": "Student & Fresher",
+    "tag": "First Job",
+    "badgeColor": "emerald",
+    "featured": true,
+    "rating": 4.8,
+    "downloads": "33.2k",
+    "desc": "Engineered for entry-level graduates: prominent Career Objective, Academic Projects, Technical & Soft Skills, and Extracurriculars.",
+    "layoutType": "single-column",
+    "pills": [
+      "Career Objective",
+      "Strengths Focus",
+      "Academic Projects",
+      "No-Exp Required"
+    ]
+  },
+  {
+    "id": "tpl_internship",
+    "name": "Internship Resume",
+    "category": "Student & Fresher",
+    "tag": "Intern Ready",
+    "badgeColor": "purple",
+    "featured": false,
+    "rating": 4.8,
+    "downloads": "21.6k",
+    "desc": "Highlights availability, internship target, hackathons, club leadership, and coursework with faculty references.",
+    "layoutType": "single-column",
+    "pills": [
+      "Availability Tag",
+      "Hackathons",
+      "Club Leadership",
+      "Faculty Ref"
+    ]
+  },
+  {
+    "id": "tpl_academic",
+    "name": "Academic Resume",
+    "category": "Student & Fresher",
+    "tag": "Academic CV",
+    "badgeColor": "rose",
+    "featured": false,
+    "rating": 4.7,
+    "downloads": "14.8k",
+    "desc": "Traditional academic curriculum vitae format: Education first, Research Interests, Publications, Theses, and Distinctions.",
+    "layoutType": "single-column",
+    "pills": [
+      "Formal CV",
+      "Research Interests",
+      "Publications",
+      "Theses & Honors"
+    ]
+  },
+  {
+    "id": "tpl_compact",
+    "name": "Compact High-Density",
+    "category": "Professional",
+    "tag": "Strict 1-Page",
+    "badgeColor": "amber",
+    "featured": false,
+    "rating": 4.8,
+    "downloads": "28.5k",
+    "desc": "Engineered for senior professionals with extensive careers who must present a clean, zero-overflow single-page resume.",
+    "layoutType": "single-column",
+    "pills": [
+      "Strict 1-Page",
+      "Tight Spacing",
+      "Clean Hierarchy",
+      "Zero Overflow"
+    ]
+  }
+]

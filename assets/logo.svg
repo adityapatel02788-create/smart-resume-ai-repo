@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 44" fill="none" class="brand-logo-svg" role="img" aria-label="Smart Resume AI Builder">
+  <!-- Folded Resume Page Icon -->
+  <g class="logo-icon" transform="translate(2, 4)">
+    <!-- Base Resume Document -->
+    <path d="M4 2 C4 0.9 4.9 0 6 0 H22 L32 10 V34 C32 35.1 31.1 36 30 36 H6 C4.9 36 4 35.1 4 34 Z" fill="#111622" stroke="rgba(255, 255, 255, 0.16)" stroke-width="1.2" stroke-linejoin="round"/>
+    <!-- Folded Corner Flap -->
+    <path d="M22 0 V8 C22 9.1 22.9 10 24 10 H32 Z" fill="#1c2333" stroke="rgba(255, 255, 255, 0.22)" stroke-width="1" stroke-linejoin="round"/>
+    <!-- Subtle Document Lines -->
+    <rect x="9" y="14" width="18" height="2" rx="1" fill="#475569" opacity="0.6"/>
+    <rect x="9" y="19" width="14" height="2" rx="1" fill="#475569" opacity="0.45"/>
+    <rect x="9" y="24" width="16" height="2" rx="1" fill="#475569" opacity="0.45"/>
+    <rect x="9" y="29" width="11" height="2" rx="1" fill="#475569" opacity="0.35"/>
+    
+    <!-- Small Elegant Amber Spark (4-Point Starlet) -->
+    <path d="M22 1 C22 5 20 7 16 7 C20 7 22 9 22 13 C22 9 24 7 28 7 C24 7 22 5 22 1 Z" fill="#f59e0b"/>
+    <!-- Inner Spark Highlight -->
+    <circle cx="22" cy="7" r="1.2" fill="#fffbeb"/>
+  </g>
+
+  <!-- Wordmark -->
+  <g class="logo-wordmark" transform="translate(44, 0)">
+    <!-- SMART RESUME -->
+    <text x="0" y="22" font-family="'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="16" font-weight="800" letter-spacing="0.05em" fill="#f1f3f7">SMART RESUME</text>
+    <!-- AI BUILDER -->
+    <text x="0.5" y="34.5" font-family="'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9" font-weight="700" letter-spacing="0.28em" fill="#f59e0b">AI BUILDER</text>
+  </g>
+</svg>
+

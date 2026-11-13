@@ -1,0 +1,23 @@
+{
+  "name": "smart-resume-ai",
+  "version": "1.0.0",
+  "description": "**Affiliation:** Hindustan College of Science & Technology, Farah, Mathura   **University:** Dr. A. P. J. Abdul Kalam Technical University, Lucknow (AKTU)   **Department:** Computer Science & Engineering (CSE - AIML)   **Project Guide:** Mr. Neeraj Kushwah, Asst. Professor, CSE - AIML   **Team Members:** Aditya Patel, Aditya Saxena, Anuj Sharma, Himanshu Sen   **Date:** August 2026",
+  "main": "app-react.js",
+  "scripts": {
+    "start": "node start-server.js",
+    "server": "node start-server.js",
+    "test": "node verify_all_fixes.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "@babel/cli": "^8.0.6",
+    "@babel/core": "^8.0.7",
+    "@babel/preset-react": "^8.0.1"
+  },
+  "dependencies": {
+    "puppeteer": "^25.13.0"
+  }
+}

@@ -1,0 +1,277 @@
+[
+  {
+    "id": "professional",
+    "name": "Professional",
+    "desc": "A professional tone."
+  },
+  {
+    "id": "persuasive",
+    "name": "Persuasive",
+    "desc": "A persuasive tone."
+  },
+  {
+    "id": "analytical",
+    "name": "Analytical",
+    "desc": "A analytical tone."
+  },
+  {
+    "id": "concise",
+    "name": "Concise",
+    "desc": "A concise tone."
+  },
+  {
+    "id": "narrative",
+    "name": "Narrative",
+    "desc": "A narrative tone."
+  },
+  {
+    "id": "conversational",
+    "name": "Conversational",
+    "desc": "A conversational tone."
+  },
+  {
+    "id": "technical",
+    "name": "Technical",
+    "desc": "A technical tone."
+  },
+  {
+    "id": "formal",
+    "name": "Formal",
+    "desc": "A formal tone."
+  },
+  {
+    "id": "visionary",
+    "name": "Visionary",
+    "desc": "A visionary tone."
+  },
+  {
+    "id": "assertive",
+    "name": "Assertive",
+    "desc": "A assertive tone."
+  },
+  {
+    "id": "empathetic",
+    "name": "Empathetic",
+    "desc": "A empathetic tone."
+  },
+  {
+    "id": "academic",
+    "name": "Academic",
+    "desc": "A academic tone."
+  },
+  {
+    "id": "results_driven",
+    "name": "Results Driven",
+    "desc": "A results driven tone."
+  },
+  {
+    "id": "strategic",
+    "name": "Strategic",
+    "desc": "A strategic tone."
+  },
+  {
+    "id": "authoritative",
+    "name": "Authoritative",
+    "desc": "A authoritative tone."
+  },
+  {
+    "id": "humorous",
+    "name": "Humorous",
+    "desc": "A humorous tone."
+  },
+  {
+    "id": "direct",
+    "name": "Direct",
+    "desc": "A direct tone."
+  },
+  {
+    "id": "creative",
+    "name": "Creative",
+    "desc": "A creative tone."
+  },
+  {
+    "id": "enthusiastic",
+    "name": "Enthusiastic",
+    "desc": "A enthusiastic tone."
+  },
+  {
+    "id": "confident",
+    "name": "Confident",
+    "desc": "A confident tone."
+  },
+  {
+    "id": "objective",
+    "name": "Objective",
+    "desc": "A objective tone."
+  },
+  {
+    "id": "subjective",
+    "name": "Subjective",
+    "desc": "A subjective tone."
+  },
+  {
+    "id": "instructive",
+    "name": "Instructive",
+    "desc": "A instructive tone."
+  },
+  {
+    "id": "inspirational",
+    "name": "Inspirational",
+    "desc": "A inspirational tone."
+  },
+  {
+    "id": "provocative",
+    "name": "Provocative",
+    "desc": "A provocative tone."
+  },
+  {
+    "id": "philosophical",
+    "name": "Philosophical",
+    "desc": "A philosophical tone."
+  },
+  {
+    "id": "pragmatic",
+    "name": "Pragmatic",
+    "desc": "A pragmatic tone."
+  },
+  {
+    "id": "diplomatic",
+    "name": "Diplomatic",
+    "desc": "A diplomatic tone."
+  },
+  {
+    "id": "candid",
+    "name": "Candid",
+    "desc": "A candid tone."
+  },
+  {
+    "id": "respectful",
+    "name": "Respectful",
+    "desc": "A respectful tone."
+  },
+  {
+    "id": "thoughtful",
+    "name": "Thoughtful",
+    "desc": "A thoughtful tone."
+  },
+  {
+    "id": "urgent",
+    "name": "Urgent",
+    "desc": "A urgent tone."
+  },
+  {
+    "id": "casual",
+    "name": "Casual",
+    "desc": "A casual tone."
+  },
+  {
+    "id": "quirky",
+    "name": "Quirky",
+    "desc": "A quirky tone."
+  },
+  {
+    "id": "bold",
+    "name": "Bold",
+    "desc": "A bold tone."
+  },
+  {
+    "id": "data_driven",
+    "name": "Data Driven",
+    "desc": "A data driven tone."
+  },
+  {
+    "id": "storytelling",
+    "name": "Storytelling",
+    "desc": "A storytelling tone."
+  },
+  {
+    "id": "minimalist",
+    "name": "Minimalist",
+    "desc": "A minimalist tone."
+  },
+  {
+    "id": "comprehensive",
+    "name": "Comprehensive",
+    "desc": "A comprehensive tone."
+  },
+  {
+    "id": "poetic",
+    "name": "Poetic",
+    "desc": "A poetic tone."
+  },
+  {
+    "id": "journalistic",
+    "name": "Journalistic",
+    "desc": "A journalistic tone."
+  },
+  {
+    "id": "consultative",
+    "name": "Consultative",
+    "desc": "A consultative tone."
+  },
+  {
+    "id": "coaching",
+    "name": "Coaching",
+    "desc": "A coaching tone."
+  },
+  {
+    "id": "mentoring",
+    "name": "Mentoring",
+    "desc": "A mentoring tone."
+  },
+  {
+    "id": "pioneering",
+    "name": "Pioneering",
+    "desc": "A pioneering tone."
+  },
+  {
+    "id": "rebellious",
+    "name": "Rebellious",
+    "desc": "A rebellious tone."
+  },
+  {
+    "id": "unconventional",
+    "name": "Unconventional",
+    "desc": "A unconventional tone."
+  },
+  {
+    "id": "traditional",
+    "name": "Traditional",
+    "desc": "A traditional tone."
+  },
+  {
+    "id": "futuristic",
+    "name": "Futuristic",
+    "desc": "A futuristic tone."
+  },
+  {
+    "id": "nostalgic",
+    "name": "Nostalgic",
+    "desc": "A nostalgic tone."
+  },
+  {
+    "id": "friendly",
+    "name": "Friendly",
+    "desc": "A friendly tone."
+  },
+  {
+    "id": "warm",
+    "name": "Warm",
+    "desc": "A warm tone."
+  },
+  {
+    "id": "crisp",
+    "name": "Crisp",
+    "desc": "A crisp tone."
+  },
+  {
+    "id": "punchy",
+    "name": "Punchy",
+    "desc": "A punchy tone."
+  },
+  {
+    "id": "eloquent",
+    "name": "Eloquent",
+    "desc": "A eloquent tone."
+  }
+]
